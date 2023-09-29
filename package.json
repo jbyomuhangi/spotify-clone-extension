@@ -15,6 +15,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.14",
     "@vitejs/plugin-vue": "^4.2.3",
     "vite": "^4.4.5"
   }

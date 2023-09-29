@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify clone extension",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "Spotify clone extension",
+    "default_popup": "index.html"
+  },
+
+  "background": {
+    "service_worker": "src/background/index.js",
+    "type": "module"
+  }
+}
