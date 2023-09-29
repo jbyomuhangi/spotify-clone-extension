@@ -12,7 +12,8 @@
     "node": "18.x.x"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-material-design-icons": "^5.2.0"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",

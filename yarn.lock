@@ -1099,6 +1099,11 @@ vite@^4.4.5:
   optionalDependencies:
     fsevents "~2.3.2"
 
+vue-material-design-icons@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/vue-material-design-icons/-/vue-material-design-icons-5.2.0.tgz#4e0cf50a68cb6900e8bd2550acbb44fad99bbd8e"
+  integrity sha512-fcdcJHQ9fQw2CAytuLAzWSELcxH138sCdMItVhvmO7Lu9afIgojB/UCWv7XHt/lURsnq/n6O+muM4AQgw8yfig==
+
 vue@^3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.3.4.tgz#8ed945d3873667df1d0fcf3b2463ada028f88bd6"
