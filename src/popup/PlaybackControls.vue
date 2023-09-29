@@ -6,12 +6,14 @@ import ShuffleVariant from "vue-material-design-icons/ShuffleVariant.vue";
 import Repeat from "vue-material-design-icons/Repeat.vue";
 import browser from "webextension-polyfill";
 
+import messageTypeEnums from "../enums/messageTypeEnums";
+
 const handleNextClick = () => {
-  browser.runtime.sendMessage({ type: "next-song" });
+  browser.runtime.sendMessage({ type: messageTypeEnums.nexSong });
 };
 
 const handlePrevClick = () => {
-  browser.runtime.sendMessage({ type: "prev-song" });
+  browser.runtime.sendMessage({ type: messageTypeEnums.prevSong });
 };
 </script>
 

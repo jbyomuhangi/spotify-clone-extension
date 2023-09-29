@@ -1,11 +1,12 @@
 import browser from "webextension-polyfill";
 
+import messageTypeEnums from "../enums/messageTypeEnums";
 import { getSpotifyCloneTabs } from "../utils/commonUtils";
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   switch (message.type) {
-    case "next-song":
-    case "prev-song": {
+    case messageTypeEnums.nexSong:
+    case messageTypeEnums.prevSong: {
       getSpotifyCloneTabs()
         .then((tabs) => {
           tabs.forEach((tab) => {
