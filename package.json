@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-material-design-icons": "^5.2.0"
+    "vue-material-design-icons": "^5.2.0",
+    "webextension-polyfill": "^0.10.0"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",

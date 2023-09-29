@@ -7,8 +7,18 @@
     "default_popup": "index.html"
   },
 
+  "permissions": ["tabs", "storage"],
+  "host_permissions": ["*://*/*"],
+
   "background": {
     "service_worker": "src/background/index.js",
     "type": "module"
-  }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["src/content/index.js"]
+    }
+  ]
 }

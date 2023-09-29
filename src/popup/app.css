@@ -4,9 +4,15 @@
   margin: 0;
   padding: 0;
   border: 0;
+  color: white;
 }
 
 #app {
   background-color: #121212;
-  color: white;
+}
+
+button {
+  cursor: pointer;
+  text-align: left;
+  background-color: unset;
 }
