@@ -15,23 +15,41 @@ const handleNextClick = () => {
 const handlePrevClick = () => {
   browser.runtime.sendMessage({ type: messageTypeEnums.prevSong });
 };
+
+const handleShuffleClick = () => {
+  browser.runtime.sendMessage({ type: messageTypeEnums.toggleShuffle });
+};
+
+const handleRepeatClick = () => {
+  browser.runtime.sendMessage({ type: messageTypeEnums.toggleRepeat });
+};
+
+const handlePlaybackClick = () => {
+  browser.runtime.sendMessage({ type: messageTypeEnums.togglePlayback });
+};
 </script>
 
 <template>
   <div class="playbackControlsContainer">
-    <ShuffleVariant :size="25" />
+    <button @click="handleShuffleClick">
+      <ShuffleVariant :size="25" />
+    </button>
 
     <button @click="handlePrevClick">
       <SkipPrevious :size="25" />
     </button>
 
-    <PlayIcon :size="35" />
+    <button @click="handlePlaybackClick">
+      <PlayIcon :size="35" />
+    </button>
 
     <button @click="handleNextClick">
       <SkipNext :size="25" />
     </button>
 
-    <Repeat :size="25" />
+    <button @click="handleRepeatClick">
+      <Repeat :size="25" />
+    </button>
   </div>
 </template>
 

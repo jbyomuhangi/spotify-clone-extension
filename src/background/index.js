@@ -6,7 +6,10 @@ import { getSpotifyCloneTabs } from "../utils/commonUtils";
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
   switch (message.type) {
     case messageTypeEnums.nexSong:
-    case messageTypeEnums.prevSong: {
+    case messageTypeEnums.prevSong:
+    case messageTypeEnums.togglePlayback:
+    case messageTypeEnums.toggleShuffle:
+    case messageTypeEnums.toggleRepeat: {
       getSpotifyCloneTabs()
         .then((tabs) => {
           tabs.forEach((tab) => {
