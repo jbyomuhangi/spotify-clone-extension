@@ -6,22 +6,29 @@ import PlaybackControls from "./PlaybackControls.vue";
   <div class="appContainer">
     <div class="imageContainer"></div>
 
-    <PlaybackControls />
+    <div class="playbackContainer">
+      <PlaybackControls />
+    </div>
   </div>
 </template>
 
 <style scoped>
 .appContainer {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 30px;
-  padding: 10px;
+  justify-content: space-between;
 }
 
 .imageContainer {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  aspect-ratio: 1/1;
   background-color: red;
+}
+
+.playbackContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
 }
 </style>

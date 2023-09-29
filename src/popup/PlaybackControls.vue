@@ -8,37 +8,18 @@ import Repeat from "vue-material-design-icons/Repeat.vue";
 
 <template>
   <div class="playbackControlsContainer">
-    <input class="playbackInput" type="range" :min="0" :max="100" :step="1" />
-
-    <div class="playbackIconsContainer">
-      <ShuffleVariant :size="25" />
-      <SkipPrevious :size="25" />
-      <PlayIcon :size="35" />
-      <SkipNext :size="25" />
-      <Repeat :size="25" />
-    </div>
+    <ShuffleVariant :size="25" />
+    <SkipPrevious :size="25" />
+    <PlayIcon :size="35" />
+    <SkipNext :size="25" />
+    <Repeat :size="25" />
   </div>
 </template>
 
 <style scoped>
 .playbackControlsContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-}
-
-.playbackInput {
-  height: 4px;
-  width: 80%;
-  widows: 100%;
-  accent-color: #1ed760;
-}
-
-.playbackIconsContainer {
-  display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 </style>
