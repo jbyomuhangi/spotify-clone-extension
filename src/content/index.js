@@ -4,6 +4,7 @@ import messageTypeEnums from "../enums/messageTypeEnums";
 
 browser.runtime.onMessage.addListener((message) => {
   switch (message.type) {
+    case messageTypeEnums.popupInit:
     case messageTypeEnums.nexSong:
     case messageTypeEnums.prevSong:
     case messageTypeEnums.togglePlayback:
@@ -29,6 +30,14 @@ window.addEventListener("message", (event) => {
         .catch(console.error);
       break;
     }
+
+    case messageTypeEnums.popupInitResponse: {
+      browser.runtime.sendMessage({
+        type: messageTypeEnums.popupInitResponse,
+        playbackData: data.playbackData,
+      });
+    }
+
     default: {
       break;
     }

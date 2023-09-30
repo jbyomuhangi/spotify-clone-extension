@@ -5,6 +5,8 @@ const messageTypeEnums = Object.freeze({
   toggleShuffle: "toggle-shuffle",
   toggleRepeat: "toggle-repeat",
   playbackDataChange: "playbackDataChange",
+  popupInit: "popupInit",
+  popupInitResponse: "popupInitResponse",
 });
 
 export default messageTypeEnums;

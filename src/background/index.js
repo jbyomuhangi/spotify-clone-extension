@@ -15,14 +15,10 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
           tabs.forEach((tab) => {
             browser.tabs
               .sendMessage(tab.id, { type: message.type })
-              .catch((error) => {
-                console.log("error sending message", { error });
-              });
+              .catch(console.error);
           });
         })
-        .catch((error) => {
-          console.log({ error });
-        });
+        .catch(console.error);
 
       return;
     }
