@@ -13,27 +13,9 @@ const isShuffleOn = ref();
 const isPlayingSong = ref();
 const isRepeatOn = ref();
 
-const handleStorageChange = ({ playbackData }) => {
-  if (!playbackData) return;
-
-  const { newValue } = playbackData;
-
-  if (newValue) {
-    isShuffleOn.value = newValue.isShuffleOn;
-    isPlayingSong.value = newValue.isPlayingSong;
-    isRepeatOn.value = newValue.isRepeatOn;
-    song.value = newValue.song;
-  } else {
-    isShuffleOn.value = undefined;
-    isPlayingSong.value = undefined;
-    isRepeatOn.value = undefined;
-    song.value = undefined;
-  }
-};
-
 const handleRuntimeMessages = (message) => {
   switch (message.type) {
-    case messageTypeEnums.popupInitResponse: {
+    case messageTypeEnums.playbackDataChange: {
       const { playbackData } = message;
 
       if (playbackData) {
@@ -58,7 +40,6 @@ const handleRuntimeMessages = (message) => {
 };
 
 onMounted(() => {
-  browser.storage.onChanged.addListener(handleStorageChange);
   browser.runtime.onMessage.addListener(handleRuntimeMessages);
 
   getSpotifyCloneTabs()
@@ -81,7 +62,6 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  browser.storage.onChanged.removeListener(handleStorageChange);
   browser.runtime.onMessage.removeListener(handleRuntimeMessages);
 });
 </script>
@@ -90,7 +70,7 @@ onBeforeUnmount(() => {
   <section v-if="isMainAppOpen">
     <div v-if="song?.id" class="appContainer">
       <div class="imageContainer">
-        <img :src="song.songArt" class="songArt" />
+        <img :key="song.id" :src="song.songArt" class="songArt" />
       </div>
 
       <div class="playbackContainer">
@@ -102,17 +82,27 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
-    <div v-else>No song is currently playing in app</div>
+    <div v-else class="basicAppContainer">
+      <p>No song is currently playing in app</p>
+    </div>
   </section>
 
   <section v-else>
-    <div>
+    <div class="basicAppContainer">
       <p>Spotify clone is not open</p>
     </div>
   </section>
 </template>
 
 <style scoped>
+.basicAppContainer {
+  display: flex;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
 .appContainer {
   display: flex;
   align-items: center;
@@ -122,7 +112,6 @@ onBeforeUnmount(() => {
 .imageContainer {
   height: 80px;
   aspect-ratio: 1/1;
-  background-color: red;
 }
 
 .playbackContainer {

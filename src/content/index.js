@@ -25,15 +25,8 @@ window.addEventListener("message", (event) => {
 
   switch (data.type) {
     case messageTypeEnums.playbackDataChange: {
-      browser.storage.sync
-        .set({ playbackData: data.playbackData })
-        .catch(console.error);
-      break;
-    }
-
-    case messageTypeEnums.popupInitResponse: {
       browser.runtime.sendMessage({
-        type: messageTypeEnums.popupInitResponse,
+        type: messageTypeEnums.playbackDataChange,
         playbackData: data.playbackData,
       });
     }
