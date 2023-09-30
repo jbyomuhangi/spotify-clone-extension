@@ -18,3 +18,19 @@ browser.runtime.onMessage.addListener((message) => {
     }
   }
 });
+
+window.addEventListener("message", (event) => {
+  const { data } = event;
+
+  switch (data.type) {
+    case messageTypeEnums.playbackDataChange: {
+      browser.storage.sync
+        .set({ playbackData: data.playbackData })
+        .catch(console.error);
+      break;
+    }
+    default: {
+      break;
+    }
+  }
+});
