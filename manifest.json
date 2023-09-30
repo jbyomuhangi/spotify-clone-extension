@@ -7,8 +7,7 @@
     "default_popup": "index.html"
   },
 
-  "permissions": ["tabs", "storage"],
-  "host_permissions": ["*://*/*"],
+  "permissions": ["tabs"],
 
   "background": {
     "service_worker": "src/background/index.js",
@@ -17,7 +16,7 @@
 
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "matches": ["<all_urls>"],
       "js": ["src/content/index.js"]
     }
   ]
